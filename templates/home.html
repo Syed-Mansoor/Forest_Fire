@@ -1,0 +1,55 @@
+<!--x<html>-->
+<!--<body>-->
+<!--    <div class = 'login'>-->
+<!--        <h1>FWI prediction</h1>-->
+
+<!--        &lt;!&ndash;Main input for recieving query to our ml-&ndash;&gt;-->
+<!--        <form action = "{{url_for('predict_datapoint')}}" method="post">-->
+<!--            <input type="text" name="Temperature" placeholder="Temperature" required = 'required'/ ><br>-->
+<!--            <input type="text" name="RH" placeholder="RH" required = 'required'/ ><br>-->
+<!--            <input type="text" name="WS" placeholder="WS" required = 'required'/ ><br>-->
+<!--            <input type="text" name="Rain" placeholder="Rain" required = 'required'/ ><br>-->
+<!--            <input type="text" name="FFMC" placeholder="FFMC" required = 'required'/ ><br>-->
+<!--            <input type="text" name="DMC" placeholder="DMC" required = 'required'/ ><br>-->
+<!--            <input type="text" name="ISI" placeholder="ISI" required = 'required'/ ><br>-->
+<!--            <input type="text" name="Classes" placeholder="Classes" required = 'required'/ ><br>-->
+<!--            <input type="text" name="Region" placeholder="Region" required = 'required'/ ><br>-->
+
+<!--            <button type = 'submit' class="btn btn-primary btn-block btn-large">predict</button>-->
+<!--        </form>-->
+<!--    <h2>-->
+<!--        The FWI prediction is {{result}}-->
+<!--    </h2>-->
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
+
+<html>
+<body>
+  <div class="container" style="background-color: #e0f2f1; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <h1 style="text-align: center; color: #3498db; margin-bottom: 20px;">FWI Prediction</h1>
+    <form action="{{ url_for('predict_datapoint') }}" method="post">
+      <label for="Temperature" style="display: block; margin-bottom: 5px; font-weight: bold;">Temperature (°C):</label>
+      <input type="text" name="Temperature" id="temperature" required><br>
+      <label for="RH" style="display: block; margin-bottom: 5px; font-weight: bold;">Relative Humidity (%):</label>
+      <input type="text" name="RH" id="rh" required><br>
+      <label for="WS" style="display: block; margin-bottom: 5px; font-weight: bold;">Wind Speed (km/h):</label>
+      <input type="text" name="WS" id="ws" required><br>
+      <label for="Rain" style="display: block; margin-bottom: 5px; font-weight: bold;">Rain (mm):</label>
+      <input type="text" name="Rain" id="rain" required><br>
+      <label for="FFMC" style="display: block; margin-bottom: 5px; font-weight: bold;">FFMC:</label>
+      <input type="text" name="FFMC" id="ffmc" required><br>
+      <label for="DMC" style="display: block; margin-bottom: 5px; font-weight: bold;">DMC:</label>
+      <input type="text" name="DMC" id="dmc" required><br>
+      <label for="ISI" style="display: block; margin-bottom: 5px; font-weight: bold;">ISI:</label>
+      <input type="text" name="ISI" id="isi" required><br>
+      <label for="fire_danger_class" style="display: block; margin-bottom: 5px; font-weight: bold;">Fire Danger Class:</label>
+      <input type="text" name="Classes" id="fire_danger_class" required><br>
+      <label for="Region" style="display: block; margin-bottom: 5px; font-weight: bold;">Region:</label>
+      <input type="text" name="Region" id="region" required><br>
+      <button type="submit" class="btn btn-primary" style="background-color: #3498db; color: #fff; border: none; padding: 10px 20px; border-radius: 3px; cursor: pointer; margin-top: 10px;">Get FWI Prediction</button>
+    </form>
+    <h2 style="text-align: center; margin-top: 20px;">Predicted FWI: <span id="prediction" style="font-weight: bold; color: #2ecc71;">{{ result }}</span></h2>
+  </div>
+</body>
+</html>
